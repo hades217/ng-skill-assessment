@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<div class="survey-container">
+			<h1>test</h1>
+				<form [formGroup] ="userForm" novalidate (ngSubmit)= "save(userForm.value)">
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="firstName">Test1</label>
+								<input class="form-control" type="text" name="firstName" value="" formControlName="firstName">
+							</div>
+						</div>
+						
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="lastName">Test2</label>
+								<input class="form-control" type="text" name="lastName" value=""  formControlName="lastName">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="email">Test3</label>
+								<input class="form-control" type="text" name="email" value=""  formControlName="email">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<button type="submit" class="btn btn-large">button</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>

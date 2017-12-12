@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="skill-assessment-container">
+			<form [formGroup] ="quoteForm" novalidate (ngSubmit)= "save(quoteForm.value)">
+				<div class="skill-assessment-wrapper" >
+					<div class="item-header__wrapper">
+						<div class="item-header__content">
+							<h1 class="item-header__title">
+								{{questionIndex}}
+							</h1>
+						</div>
+						<div class="progress-indicator-container"></div>
+					</div>
+					<div class="item-body__container">
+						<div class="text-item__stem-text-wrapper" role="region">
+							<p [innerHTML]= "questionsRawData[questionIndex].stem"></p>
+							<div [innerHTML]= "questionsRawData[questionIndex].stem_description"></div>
+						</div>
+						<div class="choices-wrapper ">
+							<div class="answered-choices choice-list">
+								<div class="text-choice text-choice__distractor" *ngFor = "let choice of questionsRawData[questionIndex].choices; let i = index" >
+									<div class="form-group">
+										<label [class.selected]="choice === selectedItem">
+											<input type="radio" [value]="choice.value" (click)="onSelect(questionsRawData[questionIndex],choice,i)" formControlName="choice"> {{i}} {{choice.display}}
+										</label>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+						<p>Form value: {{ quoteForm.value | json }}</p>
+					</div>
+					<div class="skill-assessment-footer">
+						<button type="button" class="btn btn-large" (click)="goBack()">go back</button>
+						<button type="submit" class="btn btn-large">button</button>
+					</div>
+					<div class="help-text__content">
+					</div>
+				</div>
+			</form>
+			
+		</div>
+	</div>
+</div>

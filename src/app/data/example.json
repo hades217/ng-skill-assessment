@@ -1,0 +1,56 @@
+{
+	"questions": [
+		{
+			"questionId":1,
+			"stem": "<p>How do you add a new object into an array?</p>",
+			"stem_description": "<pre>getHero(id: number): Observable<Hero> { }</pre>",
+			"choices": [
+				{
+					"value":"myArray.pop(newMember);",
+					"display":"myArray.pop(newMember);"
+				},
+				{
+					"value":"myArray.push(newMember);",
+					"display":"myArray.push(newMember);"
+				},
+				{
+					"value":"myArray.add(newMember);",
+					"display":"myArray.add(newMember);"
+				},
+				{
+					"value":"myArray.insert(newMember);",
+					"display":"myArray.insert(newMember);"
+				}
+			],
+			"answer_index": 1,
+			"format": "Multiple Choice",
+			"item_account":10
+		},
+		{
+			"questionId": 2,
+			"stem": "<p>2nd How do you add a new object into an array222?</p>",
+			"stem_description": "<pre>getHero(id: number): Observable<Hero> { }</pre>",
+			"choices": [
+				{
+					"value":"newMember",
+					"display":"newMember"
+				},
+				{
+					"value":"myArray",
+					"display":"myArray"
+				},
+				{
+					"value":"add",
+					"display":"add"
+				},
+				{
+					"value":"insert",
+					"display":"insert"
+				}
+			],
+			"answer_index": 1,
+			"format": "Multiple Choice",
+			"item_account":10
+		}
+	]
+}
