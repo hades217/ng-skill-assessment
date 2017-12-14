@@ -3,7 +3,7 @@ import { Location} from '@angular/common';
 import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Customer } from '../customer.interface';
 import { IQuestionResponse } from '../interfaces/question';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from '../api.service'
 
 declare var require: any
 const mockData = require('../data/example.json');
@@ -16,7 +16,7 @@ const mockData = require('../data/example.json');
 })
 export class SkillAssessmentComponent implements OnInit {
 	public quoteForm: FormGroup;
-	public questionsRawData: Array<IQuestionResponse>;
+	public questionsRawData: IQuestionResponse[];
 	public selectedItem: any;
 	public submitted: boolean;
 	public choices: Array<any>;
@@ -26,8 +26,7 @@ export class SkillAssessmentComponent implements OnInit {
 	private journey:any;
 	public currentTime: number;
 	
-	constructor(private fb: FormBuilder, location: Location, private http: HttpClient) {
-		this.questionsRawData = mockData.questions;
+	constructor(private fb: FormBuilder, location: Location, private api: ApiService) {
 		this.questionIndex = 0;
 		this.location = location;
 		this.journey = {
@@ -36,14 +35,15 @@ export class SkillAssessmentComponent implements OnInit {
 			amount: 2
 		}
 		this.currentTime = Date.now();
+		this.api.getAllQuestions().subscribe( (questions) =>{
+			this.questionsRawData = questions;
+			console.log(this.questionsRawData)
+		} )
 	}
 
 	ngOnInit() {
 		this.quoteForm = new FormGroup({
 			choice: new FormControl()
-		})
-		this.http.get('/api/questions').subscribe( data =>{
-			console.log(data);
 		})
 	}
 
@@ -53,6 +53,10 @@ export class SkillAssessmentComponent implements OnInit {
 			index: index
 		});
 		console.log(this.selectedItem)
+	}
+
+	get questions() {
+		return this.api.getAllQuestions();
 	}
 
 	updateQuestion(): void{
@@ -69,6 +73,9 @@ export class SkillAssessmentComponent implements OnInit {
 			this.updateQuestion()
 		}
 		// Call service
+		this.api.createAnswer(this.selectedItem).subscribe( (res) =>{
+			console.log(res)
+		});
 	}
 	setTimer() {
 		// TBA

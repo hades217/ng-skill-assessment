@@ -13,11 +13,11 @@ class Triage {
 		return {};
 	}
 
-	load(){
+	load() {
 
 	}
 
-	start(){
+	start() {
 		
 	}
 

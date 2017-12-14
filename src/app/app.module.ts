@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SkillAssessmentComponent } from './skill-assessment/skill-assessment.component';
 import { SurveyComponent } from './survey/survey.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { ApiService } from './api.service';
 
 @NgModule({
 	declarations: [
@@ -21,7 +22,7 @@ import { AppRoutingModule } from './/app-routing.module';
 		FormsModule,
 		AppRoutingModule
 	],
-	providers: [],
+	providers: [ApiService],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

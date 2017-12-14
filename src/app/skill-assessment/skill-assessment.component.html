@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="skill-assessment-container">
+		<div class="skill-assessment-container" *ngIf="questionsRawData">
 			<form [formGroup] ="quoteForm" novalidate (ngSubmit)= "save(quoteForm.value)">
 				<div class="skill-assessment-wrapper" >
 					<div class="item-header__wrapper">
@@ -32,7 +32,7 @@
 					</div>
 					<div class="skill-assessment-footer">
 						<button type="button" class="btn btn-large" (click)="goBack()">go back</button>
-						<button type="submit" class="btn btn-large">button</button>
+						<button type="submit" class="btn btn-large">Next</button>
 					</div>
 					<div class="help-text__content">
 					</div>
