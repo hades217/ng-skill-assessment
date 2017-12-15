@@ -28,9 +28,9 @@ export class ApiService {
 			.catch(this.handleError);
 		}
 	// API: POST /answer
-	public createAnswer(answer: any): Observable<IQuestionResponse> {
+	public submitAnswer(answer: any): Observable<any> {
 		return this.http.post(API_URL + '/answer', answer).map( response => {
-			return <IQuestionResponse>(response)
+			return response;
 		})
 		.catch(this.handleError);
 	}

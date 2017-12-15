@@ -73,7 +73,7 @@ export class SkillAssessmentComponent implements OnInit {
 			this.updateQuestion()
 		}
 		// Call service
-		this.api.createAnswer(this.selectedItem).subscribe( (res) =>{
+		this.api.submitAnswer(this.selectedItem).subscribe((res) =>{
 			console.log(res)
 		});
 	}
